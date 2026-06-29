@@ -1,7 +1,7 @@
 { lib, buildNpmPackage, fetchurl, nodejs, pkg-config, libsecret, python3 }:
 
 let
-  version = "3.8.19";
+  version = "3.8.38";
 
   omniroute = buildNpmPackage rec {
     pname = "omniroute";
@@ -9,10 +9,10 @@ let
 
     src = fetchurl {
       url = "https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz";
-      hash = "sha256-QZtd3X65jJ1lle9+0lkZFhQ0c9vyXxOCrRVPEM13ISE="; 
+      hash = "sha256-TBUzIn7K1F6CLxhZCjErLhaHPDZvMUK7DKetJehSIFM="; 
     };
 
-    npmDepsHash = "sha256-m7vmRIc7UiUyukPNZxXcuTlysY7SV5Jcy9bTuXl726c="; 
+    npmDepsHash = "sha256-K63uFBlB9baQioiv7o0xWBD4mu4coiCwrQeHOTPIu7U="; 
     
     inherit nodejs;
     makeCacheWritable = true;
