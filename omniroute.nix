@@ -1,7 +1,7 @@
 { lib, buildNpmPackage, fetchurl, nodejs, pkg-config, libsecret, python3 }:
 
 let
-  version = "3.8.41";
+  version = "3.8.42";
 
   omniroute = buildNpmPackage rec {
     pname = "omniroute";
