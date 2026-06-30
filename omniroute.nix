@@ -33,6 +33,13 @@ let
         echo "No vendored package-lock.json found, creating a minimal one"
         exit 1
       fi
+
+      # Upstream packaging bug: tls-options.mjs lives in scripts/dev/ but
+      # dist/server-ws.mjs imports it from ./tls-options.mjs (i.e. dist/).
+      if [ -f scripts/dev/tls-options.mjs ] && [ ! -f dist/tls-options.mjs ]; then
+        echo "Copying missing tls-options.mjs into dist/"
+        cp scripts/dev/tls-options.mjs dist/tls-options.mjs
+      fi
     '';
 
     dontNpmBuild = true;
