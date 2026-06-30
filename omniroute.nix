@@ -1,7 +1,7 @@
 { lib, buildNpmPackage, fetchurl, nodejs, pkg-config, libsecret, python3 }:
 
 let
-  version = "3.8.38";
+  version = "3.8.41";
 
   omniroute = buildNpmPackage rec {
     pname = "omniroute";
@@ -9,16 +9,16 @@ let
 
     src = fetchurl {
       url = "https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz";
-      hash = "sha256-TBUzIn7K1F6CLxhZCjErLhaHPDZvMUK7DKetJehSIFM="; 
+      hash = "sha256-x7fMJu6kSTkMEMwtERSirqTM88GlMQkaJbpLNXSE5F4="; 
     };
 
-    npmDepsHash = "sha256-K63uFBlB9baQioiv7o0xWBD4mu4coiCwrQeHOTPIu7U="; 
+    npmDepsHash = "sha256-QKa7dENZUVDG2+hlNBMViVWnK7eqxQXGVCI1afVLd3k="; 
     
     inherit nodejs;
     makeCacheWritable = true;
     npmFlags = [ "--legacy-peer-deps" ];
     
-    ONNXRUNTIME_NODE_INSTALL = "skip";
+    ONNXRUNTIME_NODE_INSTALL_CUDA = "skip";
     PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1";
     PUPPETEER_SKIP_DOWNLOAD = "1";
 
